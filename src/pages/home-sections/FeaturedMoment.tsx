@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import philosophyImg from "../../assets/philosophy.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -90,7 +91,7 @@ export const HomeFeaturedMoment = () => {
         >
           <div className="relative aspect-[4/5] w-full overflow-hidden shadow-2xl">
             <img
-              src="/src/assets/philosophy.webp"
+              src={philosophyImg}
               alt="Featured Moment"
               loading="lazy"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
