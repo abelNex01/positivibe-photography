@@ -2,7 +2,7 @@ import { SharedHero } from "@/components/SharedHero";
 import { FaqTitle } from "./faq-sections/Title";
 import { FaqList } from "./faq-sections/List";
 import { ContactMini } from "@/components/ContactMini";
-import faqHero from "@/assets/sharedHero/faq.webp";
+import faqHero from "@/assets/gallery/17.webp";
 
 export const Faq = (): JSX.Element => {
   return (

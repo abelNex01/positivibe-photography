@@ -1,7 +1,7 @@
 import { SharedHero } from "@/components/SharedHero";
 import { ShopCollections } from "./shop-sections/Collections";
 import { ShopCreativeExperience } from "./shop-sections/ShopCreativeExperience";
-import shopHero from "@/assets/sharedHero/shop.webp";
+import shopHero from "@/assets/gallery/48.webp";
 
 export const Shop = (): JSX.Element => {
   return (

@@ -2,7 +2,7 @@ import { SharedHero } from "@/components/SharedHero";
 import { PricingTable } from "./pricing-sections/Table";
 import { PricingFAQ } from "./pricing-sections/FAQ";
 import { ContactMini } from "@/components/ContactMini";
-import pricingHero from "@/assets/sharedHero/pricing.webp";
+import pricingHero from "@/assets/pricing.webp";
 
 export const Pricing = (): JSX.Element => {
   return (

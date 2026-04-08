@@ -83,15 +83,7 @@ const FormInput = ({
 
 // --- Main App Component ---
 export const Agreement = (): JSX.Element => {
-  // --- Password Protection State ---
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [passwordInput, setPasswordInput] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [sessionPassword, setSessionPassword] = useState("positivibe2026");
-  const [passwordTimestamp, setPasswordTimestamp] = useState<number | null>(null);
-  const [sessionStartTime, setSessionStartTime] = useState<number | null>(null);
-
-  // --- Existing State Management ---
+  // --- State Management ---
   const [formData, setFormData] = useState({
     clientOneName: "",
     clientTwoName: "",
@@ -193,47 +185,7 @@ export const Agreement = (): JSX.Element => {
 
 9. REVISIONS: Standard retouching is included. Extensive digital manipulation (e.g., body altering, removing complex objects) will incur an additional fee quoted per image. Any requests for re-editing the entire gallery to a different aesthetic will not be accommodated, as the client books based on the established brand style.`;
 
-  // --- Helper Functions ---
-  const generateNewPassword = () => {
-    const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-    let result = "";
-    for (let i = 0; i < 8; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return result;
-  };
-
   // --- Effects ---
-  useEffect(() => {
-    if (!passwordTimestamp) setPasswordTimestamp(Date.now());
-  }, [passwordTimestamp]);
-
-  useEffect(() => {
-    let sessionTimer: ReturnType<typeof setTimeout> | null = null;
-    const thirtyMinutes = 60 * 60 * 1000; // 60 mins technically here, matching original
-
-    const endSession = () => {
-      const newPassword = generateNewPassword();
-      console.log("=== NEW PASSWORD GENERATED ===", newPassword);
-      setSessionPassword(newPassword);
-      setIsAuthenticated(false);
-      setSessionStartTime(null);
-      setPasswordTimestamp(Date.now());
-      setPasswordInput("");
-      setPasswordError("Your session has expired. Please contact the studio for the new access key.");
-    };
-
-    if (isAuthenticated && sessionStartTime) {
-      const timeRemaining = sessionStartTime + thirtyMinutes - Date.now();
-      if (timeRemaining > 0) {
-        sessionTimer = setTimeout(endSession, timeRemaining);
-      } else {
-        endSession();
-      }
-    }
-    return () => { if (sessionTimer) clearTimeout(sessionTimer); };
-  }, [isAuthenticated, sessionStartTime]);
-
   useEffect(() => {
     const packagePrice = selectedPackage ? selectedPackage.price : 0;
     const addonsPrice = selectedAddons.reduce((sum, addon) => sum + addon.price, 0);
@@ -241,33 +193,6 @@ export const Agreement = (): JSX.Element => {
   }, [selectedPackage, selectedAddons]);
 
   // --- Event Handlers ---
-  const handlePasswordSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const now = Date.now();
-    const thirtyMinutes = 30 * 60 * 1000;
-
-    if (passwordTimestamp && now - passwordTimestamp > thirtyMinutes) {
-      const newPassword = generateNewPassword();
-      setSessionPassword(newPassword);
-      setPasswordTimestamp(now);
-      setPasswordError("Access key expired. Check console or contact studio.");
-      console.log("New login password:", newPassword);
-      setPasswordInput("");
-      return;
-    }
-
-    if (passwordInput === sessionPassword) {
-      setIsAuthenticated(true);
-      setSessionStartTime(Date.now());
-      setPasswordError("");
-      setPasswordInput("");
-      window.scrollTo(0, 0);
-    } else {
-      setPasswordError("Incorrect access key. Please refer to your client email.");
-      setPasswordInput("");
-    }
-  };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -379,51 +304,8 @@ export const Agreement = (): JSX.Element => {
   // --- Render ---
   return (
     <div className="bg-[#fcfcfc] w-full min-h-screen relative flex flex-col">
-      
-      {/* Password Gateway (Elegant Makeover) */}
-      {!isAuthenticated && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-white/95">
-          <div className="w-full max-w-[500px] bg-white border border-[#e8e8e8] shadow-2xl p-10 md:p-16 animate-in fade-in zoom-in-95 duration-500">
-            <div className="text-center mb-10">
-              <span className="[font-family:'Inter',Helvetica] font-medium text-[#D4AF37] text-[10px] sm:text-[11px] tracking-[0.2em] uppercase mb-4 block">
-                Secure Client Portal
-              </span>
-              <h2 className="[font-family:'Aboreto',Helvetica] font-normal text-[#111111] text-[32px] sm:text-[40px] leading-[1.1] tracking-wide uppercase">
-                Contract <span className="[font-family:'Bastliga',cursive] text-[#D4AF37] text-[48px] sm:text-[60px] leading-[0.7] transform translate-y-2 inline-block lowercase">Access</span>
-              </h2>
-            </div>
-            
-            <form onSubmit={handlePasswordSubmit} className="flex flex-col gap-8">
-              <input
-                type="password"
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-                placeholder="Enter Access Key"
-                className="w-full bg-transparent border-b border-[#dddddd] pb-3 text-center text-[#111111] placeholder:text-[#999999] [font-family:'Inter',Helvetica] text-sm focus:outline-none focus:border-[#D4AF37] tracking-widest transition-colors rounded-none"
-                autoFocus
-              />
-              <button
-                type="submit"
-                className="w-full py-4 bg-[#111111] text-white hover:bg-[#D4AF37] transition-all flex items-center justify-center [font-family:'Inter',Helvetica] font-medium text-[11px] tracking-[0.15em] uppercase"
-              >
-                Authenticate
-              </button>
-            </form>
-            
-            {passwordError && (
-              <p className="text-[#cc0000] text-center mt-6 [font-family:'Inter',Helvetica] text-[11px] tracking-wide uppercase">
-                {passwordError}
-              </p>
-            )}
-            <p className="text-[#999999] text-center mt-8 [font-family:'Inter',Helvetica] text-[10px] tracking-wide uppercase">
-              (Use "positivibe2026" for testing)
-            </p>
-          </div>
-        </div>
-      )}
-
       {/* Main Content */}
-      <div className={`transition-all duration-700 ${!isAuthenticated ? "opacity-0 pointer-events-none blur-md h-screen overflow-hidden" : "opacity-100"}`}>
+      <div className="opacity-100">
         
         {/* Form Header */}
         <motion.header 

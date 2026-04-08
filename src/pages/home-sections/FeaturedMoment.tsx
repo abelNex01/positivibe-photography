@@ -31,7 +31,7 @@ export const HomeFeaturedMoment = () => {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="[font-family:'Inter',Helvetica] font-medium text-[#D4AF37] text-[12px] tracking-[0.2em] uppercase block mb-4"
             >
-              Our Philosophy
+              Our Studio
             </motion.span>
             <motion.h2
               variants={fadeLeft}
@@ -45,9 +45,9 @@ export const HomeFeaturedMoment = () => {
               }}
               className="[font-family:'Aboreto',Helvetica] font-normal text-[#111111] text-[40px] md:text-[56px] leading-[1.1] tracking-wide uppercase"
             >
-              Emotion in <br />
+              The Positivibe <br />
               <span className="[font-family:'Bastliga',cursive] text-[#D4AF37] text-[58px] sm:text-[78px] md:text-[100px] leading-[0.7] italic lowercase transform translate-y-3 inline-block">
-                every frame
+                Experience
               </span>
             </motion.h2>
           </div>
@@ -60,9 +60,10 @@ export const HomeFeaturedMoment = () => {
             transition={{ duration: 0.8, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
             className="[font-family:'Inter',Helvetica] font-light text-[#555555] text-[16px] md:text-[18px] leading-relaxed max-w-[480px]"
           >
-            We believe photography is more than just a snapshot. It's about
-            capturing the quiet whispers, the loud laughter, and the unspoken
-            connections that define your most precious moments.
+            Specializing in luxury editorial wedding and event photography, 
+            Positivibe Photography preserves your milestones with cinematic precision. 
+            From intimate elopements to grand celebrations, we provide global 
+            storytelling that turns your legacy into timeless art.
           </motion.p>
 
           <motion.div
@@ -75,7 +76,7 @@ export const HomeFeaturedMoment = () => {
           >
             <div className="h-[1px] w-12 bg-[#D4AF37]" />
             <span className="[font-family:'Inter',Helvetica] font-medium text-[#111111] text-[14px] tracking-wide">
-              Timeless. Authentic. Yours.
+              Editorial. Cinematic. Timeless.
             </span>
           </motion.div>
         </div>

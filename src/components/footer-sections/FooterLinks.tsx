@@ -124,18 +124,35 @@ export const FooterLinks = () => {
                   Social Media
                 </h5>
                 <ul className="flex flex-col gap-3">
-                  {["Instagram", "Facebook", "TikTok", "Youtube"].map(
-                    (item, i) => (
-                      <li key={i}>
-                        <a
-                          href="#"
-                          className="[font-family:'Inter',Helvetica] font-light text-white/40 text-[13px] hover:text-white/70 transition-colors duration-300"
-                        >
-                          {item}
-                        </a>
-                      </li>
-                    ),
-                  )}
+                  {[
+                    {
+                      label: "Instagram",
+                      href: "https://www.instagram.com/positivibesphotography",
+                    },
+                    {
+                      label: "Pixieset",
+                      href: "https://galleries.pixieset.com/collections?page=1",
+                    },
+                    {
+                      label: "TikTok",
+                      href: "https://www.tiktok.com/@positivibesphotography",
+                    },
+                    {
+                      label: "Pintrest",
+                      href: "https://www.pinterest.com/positivibesphotography/",
+                    },
+                  ].map((item, i) => (
+                    <li key={i}>
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="[font-family:'Inter',Helvetica] font-light text-white/40 text-[13px] hover:text-white/70 transition-colors duration-300"
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </motion.div>
 

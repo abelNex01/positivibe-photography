@@ -86,7 +86,7 @@ export const HomeVideoTestimonial = (): JSX.Element => {
             className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700"
             loop
             playsInline
-            preload="auto"
+            preload="none"
             muted={false}
           />
 

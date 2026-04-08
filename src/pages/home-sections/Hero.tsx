@@ -3,20 +3,13 @@ import { useReservation } from "@/context/ReservationContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Import hero images
-import hero1 from "../../assets/hero/hero1.webp";
 import hero2 from "../../assets/hero/hero2.webp";
 import hero3 from "../../assets/hero/hero3.webp";
 import hero4 from "../../assets/hero/hero4.webp";
 
-const heroImages = [hero1, hero2, hero3, hero4];
+const heroImages = [hero2, hero3, hero4];
 
 const heroContent = [
-  {
-    title: "Begin Your",
-    highlight: "Legacy",
-    subtitle:
-      "We are currently accepting a limited number of commissions for 2026. Reach out to secure your date.",
-  },
   {
     title: "Capture Every",
     highlight: "Moment",
@@ -66,6 +59,8 @@ export const HomeHero = () => {
               style={{
                 transform: index === currentSlide ? "scale(1)" : "scale(1.1)",
               }}
+              fetchPriority="high"
+              loading="eager"
             />
           </div>
         ))}
