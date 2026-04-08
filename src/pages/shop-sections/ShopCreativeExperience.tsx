@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import gallery52 from "../../assets/gallery/52.webp";
+import gallery40 from "../../assets/gallery/40.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
@@ -35,7 +37,7 @@ export const ShopCreativeExperience = (): JSX.Element => {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
               <img
-                src="/src/assets/gallery/52.webp"
+                src={gallery52}
                 alt="Fine Art Detail"
                 className="w-full h-full object-cover transform scale-110 hover:scale-100 transition-transform [transition-duration:2000ms] ease-out"
               />
@@ -49,7 +51,7 @@ export const ShopCreativeExperience = (): JSX.Element => {
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
               <img
-                src="/src/assets/gallery/40.webp"
+                src={gallery40}
                 alt="Archival Materials"
                 className="w-full h-full object-cover"
               />

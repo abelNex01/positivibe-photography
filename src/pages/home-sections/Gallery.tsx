@@ -1,6 +1,8 @@
 import { useState, useCallback, useEffect } from "react";
 import { X, Maximize2, ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import avatar1 from "../../assets/gallery/5.webp";
+import avatar2 from "../../assets/gallery/10.webp";
 
 // Dynamically load all gallery images securely using Vite's glob import
 const imageModules = (import.meta as any).glob(
@@ -20,12 +22,12 @@ const allGalleryImages = Object.entries(imageModules)
 
 const photographers = [
   {
-    avatar: "/figmaAssets/63f693b8eeb12722157372-jpg.png",
+    avatar: avatar1,
     name: "Sofia Patel",
     badge: "LUXE",
   },
   {
-    avatar: "/figmaAssets/62b596005f36c935394909-jpg.png",
+    avatar: avatar2,
     name: "Liam O'Connor",
     badge: "PRO",
   },

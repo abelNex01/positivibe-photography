@@ -1,6 +1,9 @@
 import { Check } from "lucide-react";
 import { useReservation } from "@/context/ReservationContext";
 import { motion } from "framer-motion";
+import gallery50 from "../../assets/gallery/50.webp";
+import gallery60 from "../../assets/gallery/60.webp";
+import gallery18 from "../../assets/gallery/18.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -23,7 +26,7 @@ const packages = [
       "Online Proofing & Sharing",
       "Print Release",
     ],
-    image: "/src/assets/gallery/50.webp",
+    image: gallery50,
     highlighted: false,
   },
   {
@@ -37,7 +40,7 @@ const packages = [
       "Complimentary Engagement Session",
       "Print Release",
     ],
-    image: "/src/assets/gallery/60.webp",
+    image: gallery60,
     highlighted: true,
   },
   {
@@ -52,7 +55,7 @@ const packages = [
       "Premium 10x10 Heirloom Album",
       "Next-Day Sneak Peeks",
     ],
-    image: "/src/assets/gallery/18.webp",
+    image: gallery18,
     highlighted: false,
   },
 ];
