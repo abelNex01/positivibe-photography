@@ -2,6 +2,7 @@ import { SharedHero } from "@/components/SharedHero";
 import { FaqTitle } from "./faq-sections/Title";
 import { FaqList } from "./faq-sections/List";
 import { ContactMini } from "@/components/ContactMini";
+import faqHero from "@/assets/sharedHero/faq.webp";
 
 export const Faq = (): JSX.Element => {
   return (
@@ -10,7 +11,7 @@ export const Faq = (): JSX.Element => {
         title="Everything you need"
         subtitleThin="to"
         subtitleBold="know"
-        image="/src/assets/sharedHero/faq.webp"
+        image={faqHero}
       />
       <FaqTitle />
       <FaqList />

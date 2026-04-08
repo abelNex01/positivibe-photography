@@ -1,6 +1,7 @@
 import { Calendar } from "lucide-react";
 import { useReservation } from "@/context/ReservationContext";
 import { motion } from "framer-motion";
+import footerBg from "@/assets/footer.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -16,7 +17,7 @@ export const FooterCTA = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/src/assets/footer.webp')`,
+          backgroundImage: `url('${footerBg}')`,
         }}
       />
       {/* Dark Overlay */}

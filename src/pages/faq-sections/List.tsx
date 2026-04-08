@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ChevronDown, Mail, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import gallery18 from "../../assets/gallery/18.webp";
+import gallery43 from "../../assets/gallery/43.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -91,7 +93,7 @@ export const FaqList = (): JSX.Element => {
           <div className="sticky top-32 flex flex-col items-start text-left">
             <div className="w-full aspect-[3/4] bg-[#f8f8f8] mb-10 overflow-hidden shadow-sm">
               <img 
-                src="/src/assets/gallery/18.webp" 
+                src={gallery18} 
                 alt="Connect with us" 
                 className="w-full h-full object-cover grayscale opacity-90"
               />
@@ -194,7 +196,7 @@ export const FaqList = (): JSX.Element => {
           <div className="sticky top-32 flex flex-col items-end text-right">
              <div className="w-full aspect-[4/5] bg-[#f8f8f8] mb-10 overflow-hidden shadow-sm relative">
                 <img 
-                  src="/src/assets/gallery/43.webp" 
+                  src={gallery43} 
                   alt="Our Philosophy" 
                   className="w-full h-full object-cover"
                 />

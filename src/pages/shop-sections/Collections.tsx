@@ -124,12 +124,10 @@ const productsBase = [
 
 export const ShopCollections = (): JSX.Element => {
   const galleryImages = useMemo(
-    () =>
-      Object.keys(
-        (import.meta as any).glob("/src/assets/gallery/*.webp", {
-          eager: true,
-        }),
-      ),
+    () => {
+      const modules = (import.meta as any).glob("../../assets/gallery/*.webp", { eager: true });
+      return Object.values(modules).map((mod: any) => mod.default as string);
+    },
     [],
   );
 
